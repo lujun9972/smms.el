@@ -65,10 +65,12 @@
 (defvar smms-db-filename ".smms.db")
 
 (defun smms-get-db-file ()
+  "返回数据文件的路径,数据文件中记录了本地图片路径，图片URL以及删除URL的对应关系"
   (let ((root (or (vc-root-dir)
                   default-directory)))
     (expand-file-name smms-db-filename root)))
 
+;;;###autoload
 (defun smms-upload-image (&optional file)
   "上传图片，将图片URL保存到kill-ring中"
   (interactive)
